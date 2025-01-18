@@ -1,0 +1,40 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=15
+
+# Guess weather every 10 minutes
+[weather]
+command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+interval=600
+color=#A4C2F4
+
+# Query my default IP address only on startup
+[ip]
+command=~/Dev/dotfiles/i3blocks/ip_block.sh
+interval=10
+
+[memory]
+command=~/Dev/dotfiles/scripts/memory.sh
+interval=5
+label=M: 
+
+[volume]
+command=~/Dev/dotfiles/i3blocks/volume.sh
+interval=1
+
+[battery]
+command=~/Dev/dotfiles/i3blocks/battery.sh
+interval=10
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+
