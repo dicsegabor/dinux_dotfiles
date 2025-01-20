@@ -2,14 +2,14 @@
 
 ## Config files
 
-- starship
-- bashrc
-- i3
-- i3blocks
-- xinitrc
-- nvim
-- alacritty
-- x11
+- [ ] starship
+- [ ] bashrc
+- [ ] i3
+- [ ] i3blocks
+- [ ] xinitrc
+- [ ] nvim
+- [ ] alacritty
+- [ ] x11
 
 ## Create dotfiles
 
@@ -17,6 +17,9 @@
 - [ ] bootstrap script
 - [ ] helper script
 - [ ] collecting config files
+- [ ] update script
+- [ ] backup.sh
+- [ ] cleanup.sh
 
 ## Functions
 
@@ -32,12 +35,11 @@
 - [x] touchpad double finger tap right click
 - [ ] touchpad swipe for desktop change
 
-## I3
+## I3Blocks
 
-- [ ] i3blocks
-  - [ ] CPU usage
-  - [ ] calendar on time click
-  - [ ] better bluetooth and wifi
+- [ ] CPU usage
+- [ ] calendar on time click
+- [ ] better bluetooth and wifi
 
 ## Dunst
 
