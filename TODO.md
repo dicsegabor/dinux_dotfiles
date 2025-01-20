@@ -10,6 +10,7 @@
 - [ ] nvim
 - [ ] alacritty
 - [ ] x11
+- [ ] tmux
 
 ## Create dotfiles
 
