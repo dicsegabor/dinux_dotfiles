@@ -25,7 +25,6 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager and Bluetooth tray applets
-exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 
 # Disable touchscreen via a custom script
@@ -169,6 +168,10 @@ bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i
 ## -----------------------
 ## Application Shortcuts
 ## -----------------------
+
+# Application launcher
+bindsym Mod4+d exec dmenu_run
+
 # Launch htop in terminal
 bindsym Ctrl+Shift+Escape exec alacritty --command "htop"
 
@@ -189,14 +192,14 @@ bindsym Mod4+Return exec alacritty
 ## -----------------------
 # Volume controls
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym Mod4+F3 exec --no-startup-id ~/Dev/dotfiles/scripts/volume_inc.sh
-bindsym Mod4+F2 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym Mod4+F1 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym Mod4+F3 exec --no-startup-id ~/Dev/dotfiles/.config/i3/scripts/volume_control.sh +5%
+bindsym Mod4+F2 exec --no-startup-id ~/Dev/dotfiles/.config/i3/scripts/volume_control.sh -5% 
+bindsym Mod4+F1 exec --no-startup-id ~/Dev/dotfiles/.config/i3/scripts/volume_control.sh toggle 
 bindsym Mod4+F4 exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Brightness controls
-bindsym Mod4+F5 exec --no-startup-id xbacklight -dec 5 && $refresh_i3status
-bindsym Mod4+F6 exec --no-startup-id xbacklight -inc 5 && $refresh_i3status
+bindsym Mod4+F5 exec --no-startup-id ~/Dev/dotfiles/.config/i3/scripts/brightness_control.sh -5%
+bindsym Mod4+F6 exec --no-startup-id ~/Dev/dotfiles/.config/i3/scripts/brightness_control.sh +5% 
 
 # =======================
 # Bar Configuration

@@ -15,10 +15,10 @@ toggle)
   # Toggle mute status
   pactl set-sink-mute @DEFAULT_SINK@ toggle
   if [ "$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')" = "yes" ]; then
-    notify-send -u low -r "$NOTIFICATION_ID" "Volume Control" "  Muted"
+    notify-send -r "$NOTIFICATION_ID" "Volume Control" "  Muted"
   else
     VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F '[ /%]+' '/Volume:/ {print $4}')
-    notify-send -u low -r "$NOTIFICATION_ID" "Volume Control" "  $VOLUME%"
+    notify-send -r "$NOTIFICATION_ID" "Volume Control" "  $VOLUME%"
   fi
   ;;
 +* | -*)
@@ -49,7 +49,7 @@ toggle)
     ICON=" " # High volume
   fi
 
-  notify-send -u low -r "$NOTIFICATION_ID" "Volume Control" "$ICON $VOLUME%"
+  notify-send -r "$NOTIFICATION_ID" "Volume Control" "$ICON  $VOLUME%"
   ;;
 *)
   echo "Invalid parameter: $1"

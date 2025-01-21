@@ -26,18 +26,18 @@ else
 fi
 
 # Output the icon and battery percentage (without % symbol)
-echo "$ICON $BATTERY_PERCENT"
+echo "$ICON  $BATTERY_PERCENT"
 
 # Handle click events
 case $BLOCK_BUTTON in
-1) # Left click: Show runtime or charging time with percentage
+3) # Left click: Show runtime or charging time with percentage
   if [ "$CHARGING_STATUS" = "charging" ]; then
-    notify-send -r "$NOTIFICATION_ID" "Battery Info" "$ICON Charging: $BATTERY_PERCENT% - Time to full charge: ${BATTERY_TIME:-Unknown}"
+    notify-send -r "$NOTIFICATION_ID" "Battery Info" "Charging: $BATTERY_PERCENT% - Time to full charge: ${BATTERY_TIME:-Unknown}"
   else
-    notify-send -r "$NOTIFICATION_ID" "Battery Info" "$ICON Discharging: $BATTERY_PERCENT% - Runtime remaining: ${BATTERY_TIME:-Unknown}"
+    notify-send -r "$NOTIFICATION_ID" "Battery Info" "Discharging: $BATTERY_PERCENT% - Runtime remaining: ${BATTERY_TIME:-Unknown}"
   fi
   ;;
-3) # Right click: Toggle performance mode
+1) # Right click: Toggle performance mode
   CURRENT_PROFILE=$(powerprofilesctl get)
   if [ "$CURRENT_PROFILE" = "performance" ]; then
     powerprofilesctl set balanced

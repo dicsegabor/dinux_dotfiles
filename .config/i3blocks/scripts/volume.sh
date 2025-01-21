@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Define a notification ID
+NOTIFICATION_ID=9999
+
 # Get the volume of the default sink
 VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F '[ /%]+' '/Volume:/ {print $4}')
 
@@ -8,23 +11,26 @@ MUTED=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
 
 # Determine the icon based on volume level or mute status
 if [ "$MUTED" = "yes" ]; then
-  ICON=" " # Muted icon
+  ICON="" # Muted icon
 else
   if [ "$VOLUME" -eq 0 ]; then
-    ICON=" " # Low volume (0%)
+    ICON="" # Low volume (0%)
   elif [ "$VOLUME" -le 33 ]; then
-    ICON=" " # Medium volume (1-33%)
+    ICON="" # Medium volume (1-33%)
   else
-    ICON=" " # High volume (34-100%)
+    ICON="" # High volume (34-100%)
   fi
 fi
 
 # Output the icon and volume percentage
-echo "$ICON"
+echo "$ICON  $VOLUME"
 
 # Handle click events
 case $BLOCK_BUTTON in
 1) # Left click: Open pavucontrol
-  pavucontrol
+  alacritty -e pulsemixer
+  ;;
+3)
+  notify-send -r "$NOTIFICATION_ID" "Volume" "$ICON  $VOLUME%"
   ;;
 esac

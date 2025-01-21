@@ -4,8 +4,8 @@
 
 - [ ] starship
 - [ ] bashrc
-- [ ] i3
-- [ ] i3blocks
+- [x] i3
+- [x] i3blocks
 - [ ] xinitrc
 - [ ] nvim
 - [ ] alacritty
@@ -22,13 +22,17 @@
 - [ ] backup.sh
 - [ ] cleanup.sh
 
+## Helper scripts
+
+- [ ] Request notification id
+
 ## Functions
 
 - [ ] more shortcuts
   - [x] al+f4 -> close window
   - [x] win+shift+s -> maim -s
 - [x] modify modifier key to win key
-- [ ] change desktop in directions
+- [x] change desktop in directions
 
 ## System Functions
 
@@ -38,10 +42,14 @@
 
 ## I3Blocks
 
-- [ ] CPU usage
+- [x] CPU usage
 - [ ] calendar on time click
 - [ ] better bluetooth and wifi
 
 ## Dunst
 
-- [ ] brightness and volume change
+- [x] brightness and volume change
+
+## Refactoring
+
+- [ ] update taskbar i3blocks scripts so if thenumber is 3 digit dont jump around

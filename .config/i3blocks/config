@@ -5,34 +5,31 @@
 #
 #     https://vivien.github.io/i3blocks
 
-
 # Global properties
 separator=true
 separator_block_width=15
 
 # Guess weather every 10 minutes
 [weather]
-command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+command=./scripts/weather.sh
 interval=600
 color=#A4C2F4
 
-# Query my default IP address only on startup
-[ip]
-command=~/Dev/dotfiles/i3blocks/ip_block.sh
-interval=10
-
-[memory]
-command=~/Dev/dotfiles/scripts/memory.sh
-interval=5
-label=M: 
-
-[volume]
-command=~/Dev/dotfiles/i3blocks/volume.sh
+[resources]
+command=./scripts/resources.sh
 interval=1
 
 [battery]
-command=~/Dev/dotfiles/i3blocks/battery.sh
-interval=10
+command=./scripts/battery.sh
+interval=1
+
+[volume]
+command=./scripts/volume.sh
+interval=1
+
+[wifi]
+command=./scripts/wifi.sh
+interval=1
 
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'
