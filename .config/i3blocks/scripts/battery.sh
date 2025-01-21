@@ -1,21 +1,50 @@
 #!/bin/bash
 
-# Get battery percentage using acpi
-BAT=$(acpi -b | grep -E -o '[0-9]+%' | tr -d '%')
-REM=$(acpi -b | grep -E -o '[0-9][0-9]:[0-9][0-9]:[0-9][0-9]' | cut -c-5)
+# Define a notification ID
+NOTIFICATION_ID=9998
 
-# Check if BAT is valid
-if [[ -z "$BAT" || ! "$BAT" =~ ^[0-9]+$ ]]; then
-  echo "Error: Unable to retrieve battery percentage."
-  exit 1
+# Get battery information from upower
+UP_BATTERY_INFO=$(upower -i "$(upower -e | grep BAT)")
+
+BATTERY_PERCENT=$(echo "$UP_BATTERY_INFO" | grep "percentage" | awk '{print $2}' | tr -d '%')
+CHARGING_STATUS=$(echo "$UP_BATTERY_INFO" | grep "state" | awk '{print $2}')
+BATTERY_TIME=$(echo "$UP_BATTERY_INFO" | grep -E "time to full|time to empty" | awk '{print $4, $5}')
+
+# Determine the icon based on battery percentage and charging status
+if [ "$CHARGING_STATUS" = "charging" ]; then
+  ICON="" # Battery with lightning
+elif [ "$BATTERY_PERCENT" -le 25 ]; then
+  ICON="" # Empty battery
+elif [ "$BATTERY_PERCENT" -le 50 ]; then
+  ICON="" # Quarter battery
+elif [ "$BATTERY_PERCENT" -le 75 ]; then
+  ICON="" # Half battery
+elif [ "$BATTERY_PERCENT" -lt 100 ]; then
+  ICON="" # 3 quarters battery
+else
+  ICON="" # Full battery
 fi
 
-# Check for click events
+# Output the icon and battery percentage (without % symbol)
+echo "$ICON $BATTERY_PERCENT"
+
+# Handle click events
 case $BLOCK_BUTTON in
-1) # Left click: Show the IP
-  echo "${REM}"
+1) # Left click: Show runtime or charging time with percentage
+  if [ "$CHARGING_STATUS" = "charging" ]; then
+    notify-send -r "$NOTIFICATION_ID" "Battery Info" "$ICON Charging: $BATTERY_PERCENT% - Time to full charge: ${BATTERY_TIME:-Unknown}"
+  else
+    notify-send -r "$NOTIFICATION_ID" "Battery Info" "$ICON Discharging: $BATTERY_PERCENT% - Runtime remaining: ${BATTERY_TIME:-Unknown}"
+  fi
   ;;
-*) # Default: Show "IP"
-  echo "B: ${BAT}%"
+3) # Right click: Toggle performance mode
+  CURRENT_PROFILE=$(powerprofilesctl get)
+  if [ "$CURRENT_PROFILE" = "performance" ]; then
+    powerprofilesctl set balanced
+    notify-send -r "$NOTIFICATION_ID" "Power Mode" "Switched to Balanced Mode"
+  else
+    powerprofilesctl set performance
+    notify-send -r "$NOTIFICATION_ID" "Power Mode" "Switched to Performance Mode"
+  fi
   ;;
 esac
