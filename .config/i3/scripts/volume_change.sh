@@ -12,6 +12,7 @@ fi
 # Handle mute and volume adjustment
 case "$1" in
 toggle)
+  # Toggle mute status
   pactl set-sink-mute @DEFAULT_SINK@ toggle
   if [ "$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')" = "yes" ]; then
     notify-send -u low -r "$NOTIFICATION_ID" "Volume Control" "  Muted"
@@ -21,6 +22,12 @@ toggle)
   fi
   ;;
 +* | -*)
+  # Unmute if muted
+  if [ "$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')" = "yes" ]; then
+    pactl set-sink-mute @DEFAULT_SINK@ 0
+  fi
+
+  # Adjust volume
   pactl set-sink-volume @DEFAULT_SINK@ "$1"
   VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F '[ /%]+' '/Volume:/ {print $4}')
 
@@ -35,7 +42,7 @@ toggle)
 
   # Choose an icon based on the volume level
   if [ "$VOLUME" -eq 0 ]; then
-    ICON=" " # Muted
+    ICON=" " # Muted (even though not really muted here)
   elif [ "$VOLUME" -le 33 ]; then
     ICON=" " # Low volume
   else
