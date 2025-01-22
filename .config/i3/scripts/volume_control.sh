@@ -9,6 +9,19 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
+# Function to generate volume bar
+generate_volume_bar() {
+  local VOLUME=$1
+  local BAR_LENGTH=30
+  local FILLED=$((VOLUME * BAR_LENGTH / 100))
+  local EMPTY=$((BAR_LENGTH - FILLED))
+
+  # Only print filled if FILLED > 0
+  [ "$FILLED" -gt 0 ] && printf '%s' "$(printf '█%.0s' $(seq 1 $FILLED))"
+  # Only print empty if EMPTY > 0
+  [ "$EMPTY" -gt 0 ] && printf '%s' "$(printf '░%.0s' $(seq 1 $EMPTY))"
+}
+
 # Handle mute and volume adjustment
 case "$1" in
 toggle)
@@ -18,7 +31,8 @@ toggle)
     notify-send -r "$NOTIFICATION_ID" "Volume Control" "  Muted"
   else
     VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F '[ /%]+' '/Volume:/ {print $4}')
-    notify-send -r "$NOTIFICATION_ID" "Volume Control" "  $VOLUME%"
+    BAR=$(generate_volume_bar "$VOLUME")
+    notify-send -r "$NOTIFICATION_ID" "Volume Control" "  $BAR"
   fi
   ;;
 +* | -*)
@@ -49,7 +63,8 @@ toggle)
     ICON=" " # High volume
   fi
 
-  notify-send -r "$NOTIFICATION_ID" "Volume Control" "$ICON  $VOLUME%"
+  BAR=$(generate_volume_bar "$VOLUME")
+  notify-send -r "$NOTIFICATION_ID" "Volume Control" "$(printf '%s %s' "$ICON" "$BAR")"
   ;;
 *)
   echo "Invalid parameter: $1"

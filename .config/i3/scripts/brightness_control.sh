@@ -8,6 +8,19 @@ get_brightness() {
   xbacklight -get | awk '{print int($1+0.5)}'
 }
 
+# Function to generate brightness bar
+generate_brightness_bar() {
+  local BRIGHTNESS=$1
+  local BAR_LENGTH=30
+  local FILLED=$((BRIGHTNESS * BAR_LENGTH / 100))
+  local EMPTY=$((BAR_LENGTH - FILLED))
+
+  # Only print filled if FILLED > 0
+  [ "$FILLED" -gt 0 ] && printf '%s' "$(printf '█%.0s' $(seq 1 $FILLED))"
+  # Only print empty if EMPTY > 0
+  [ "$EMPTY" -gt 0 ] && printf '%s' "$(printf '░%.0s' $(seq 1 $EMPTY))"
+}
+
 # Check input parameter
 if [ -z "$1" ]; then
   echo "Usage: $0 [+5%|-5%]"
@@ -34,7 +47,11 @@ case "$1" in
     ICON=" " # High brightness
   fi
 
-  notify-send -r "$NOTIFICATION_ID" "Brightness Control" "$ICON  $BRIGHTNESS%"
+  # Generate brightness bar
+  BAR=$(generate_brightness_bar "$BRIGHTNESS")
+
+  # Send notification with brightness bar
+  notify-send -r "$NOTIFICATION_ID" "Brightness Control" "$(printf '%s %s' "$ICON" "$BAR")"
   ;;
 *)
   echo "Invalid parameter: $1"
