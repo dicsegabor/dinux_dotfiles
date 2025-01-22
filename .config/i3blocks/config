@@ -31,9 +31,14 @@ interval=1
 color=#F6A5A5  # Soft red for battery status
 
 [wifi]
-command=./scripts/wifi.sh
+command=./scripts/network.sh
 interval=1
 color=#FFD966  # Golden yellow for volume
+
+[bluetooth]
+command=./scripts/bluetooth.sh
+interval=1
+color=#0082FC
 
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'

@@ -28,9 +28,6 @@ exec --no-startup-id dex --autostart --environment i3
 # Screen locker with sleep lock handling
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# NetworkManager and Bluetooth tray applets
-exec --no-startup-id blueman-applet
-
 # Disable touchscreen via a custom script
 exec --no-startup-id ~/Dev/dotfiles/scripts/disable_touchscreen.sh
 
