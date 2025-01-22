@@ -25,6 +25,8 @@
 ## Helper scripts
 
 - [ ] Request notification id
+- [ ] Open application fullscreen
+- [ ] Open application floating
 
 ## Functions
 
@@ -44,7 +46,8 @@
 
 - [x] CPU usage
 - [ ] calendar on time click
-- [ ] better bluetooth and wifi
+- [ ] bluetooth
+- [x] wifi
 
 ## Dunst
 

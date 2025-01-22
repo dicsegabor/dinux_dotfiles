@@ -35,7 +35,7 @@ echo "$ICON  $SIGNAL"
 # Handle click events
 case $BLOCK_BUTTON in
 1) # Left click: Open nmtui
-  alacritty -e nmtui
+  i3-msg 'exec alacritty --title mixer_floating -e nmtui'
   ;;
 3) # Right click: Show signal strength and IP address
   notify-send -r "$NOTIFICATION_ID" -t 20000 "WiFi Info" "SSID: $SSID\nSignal Strength: $SIGNAL%\nIP Address: $IP_ADDRESS"

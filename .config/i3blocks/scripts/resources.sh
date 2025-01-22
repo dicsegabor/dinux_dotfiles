@@ -7,7 +7,7 @@ NOTIFICATION_ID=9996
 MEM_INFO=$(free -h | grep "Mem:")
 TOTAL_MEM=$(echo "$MEM_INFO" | awk '{print $2}')
 USED_MEM=$(echo "$MEM_INFO" | awk '{print $3}')
-USED_PERCENT=$(echo "$USED_MEM $TOTAL_MEM" | awk '{print ($1/$2)*100}' | awk '{printf "%.0f", $1}')
+USED_PERCENT=$(awk -v used="$USED_MEM" -v total="$TOTAL_MEM" 'BEGIN {printf "%.0f", (used / total) * 100}')
 
 # Memory icon (single icon as you optimized it)
 MEM_ICON=""
@@ -18,7 +18,7 @@ echo "$MEM_ICON  $USED_PERCENT"
 # Handle click events
 case $BLOCK_BUTTON in
 1) # Left click: Open htop
-  alacritty -e htop
+  i3-msg 'exec alacritty --title htop_fullscreen -e htop'
   ;;
 3) # Right click: Show detailed resource information
 
@@ -35,6 +35,6 @@ case $BLOCK_BUTTON in
 
   # Display notification
   notify-send -r "$NOTIFICATION_ID" -t 20000 "Resource Monitor" \
-    "Memory:\n- Total: $TOTAL_MEM\n- Used: $USED_MEM\n- Free: $FREE_MEM\n- Usage: $USED_PERCENT%\n\nCPU:\n- Usage: $(printf '%.1f' $CPU_USAGE)%\n\nThermals:\n- Temp: $THERMAL_INFO"
+    "Memory:\n- Total: $TOTAL_MEM\n- Used: $USED_MEM\n- Free: $FREE_MEM\n- Usage: $USED_PERCENT%\n\nCPU:\n- Usage: $(printf '%.1f' "$CPU_USAGE")%\n\nThermals:\n- Temp: $THERMAL_INFO"
   ;;
 esac

@@ -13,23 +13,27 @@ separator_block_width=15
 [weather]
 command=./scripts/weather.sh
 interval=600
-color=#A4C2F4
+color=#A4C2F4  # Light blue for weather
 
 [resources]
 command=./scripts/resources.sh
 interval=1
+color=#B6D7A8  # Light green for system resources
 
 [battery]
 command=./scripts/battery.sh
 interval=1
+color=#C9C9FF  # Lavender for WiFi
 
 [volume]
 command=./scripts/volume.sh
 interval=1
+color=#F6A5A5  # Soft red for battery status
 
 [wifi]
 command=./scripts/wifi.sh
 interval=1
+color=#FFD966  # Golden yellow for volume
 
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'

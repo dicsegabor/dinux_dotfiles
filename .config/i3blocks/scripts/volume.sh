@@ -28,7 +28,8 @@ echo "$ICON  $VOLUME"
 # Handle click events
 case $BLOCK_BUTTON in
 1) # Left click: Open pavucontrol
-  alacritty -e pulsemixer
+
+  i3-msg 'exec alacritty --title mixer_floating -e pulsemixer'
   ;;
 3)
   notify-send -r "$NOTIFICATION_ID" "Volume" "$ICON  $VOLUME%"
