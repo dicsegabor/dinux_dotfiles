@@ -7,7 +7,7 @@ NOTIFICATION_ID=9994
 TEMPERATURE=$(curl -s 'https://wttr.in?format=%t')
 
 # Output the temperature for the status bar
-echo "$TEMPERATURE"
+echo " $TEMPERATURE "
 
 # Handle click events
 case $BLOCK_BUTTON in

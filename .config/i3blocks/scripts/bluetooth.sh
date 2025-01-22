@@ -23,7 +23,7 @@ else
 fi
 
 # Output the icon
-echo "$ICON"
+echo " $ICON "
 
 # Handle click events
 case $BLOCK_BUTTON in
