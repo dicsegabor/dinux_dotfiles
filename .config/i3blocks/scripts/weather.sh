@@ -12,7 +12,7 @@ echo "$TEMPERATURE"
 # Handle click events
 case $BLOCK_BUTTON in
 1) # Left click: Show hourly forecast in terminal
-  i3-msg 'exec alacritty --title wttr_fullscreen --hold -e curl -Ss "https://wttr.in?hourly"'
+  i3-msg 'exec alacritty --title wttr_fullscreen --hold -e curl -Ss "https://wttr.in?hourly&m"'
   ;;
 3) # Right click: Show detailed weather information
   WEATHER_DETAILS=$(curl -s 'https://wttr.in?format=%l\n%C\n%t\n%w\n%h')
