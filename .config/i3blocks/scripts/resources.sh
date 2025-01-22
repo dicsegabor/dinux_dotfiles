@@ -12,8 +12,11 @@ USED_PERCENT=$(awk -v used="$USED_MEM" -v total="$TOTAL_MEM" 'BEGIN {printf "%.0
 # Memory icon (single icon as you optimized it)
 MEM_ICON=""
 
+# Pad the volume percentage to always be 3 characters
+USED_PERCENT_PADDED=$(printf "%3d" "$USED_PERCENT")
+
 # Output only RAM usage for the status bar
-echo "$MEM_ICON  $USED_PERCENT"
+echo "$MEM_ICON  $USED_PERCENT_PADDED"
 
 # Handle click events
 case $BLOCK_BUTTON in

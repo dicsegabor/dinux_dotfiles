@@ -10,7 +10,6 @@ BATTERY_PERCENT=$(echo "$UP_BATTERY_INFO" | grep "percentage" | awk '{print $2}'
 CHARGING_STATUS=$(echo "$UP_BATTERY_INFO" | grep "state" | awk '{print $2}')
 BATTERY_TIME=$(echo "$UP_BATTERY_INFO" | grep -E "time to full|time to empty" | awk '{print $4, $5}')
 
-# Determine the icon based on battery percentage and charging status
 if [ "$CHARGING_STATUS" = "charging" ]; then
   ICON="" # Battery with lightning
 elif [ "$BATTERY_PERCENT" -le 25 ]; then
@@ -25,8 +24,11 @@ else
   ICON="" # Full battery
 fi
 
+# Pad the volume percentage to always be 3 characters
+BATTERY_PERCENT_PADDED=$(printf "%3d" "$BATTERY_PERCENT")
+
 # Output the icon and battery percentage (without % symbol)
-echo "$ICON  $BATTERY_PERCENT"
+echo "$ICON  $BATTERY_PERCENT_PADDED"
 
 # Handle click events
 case $BLOCK_BUTTON in

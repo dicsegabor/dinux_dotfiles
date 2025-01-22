@@ -29,8 +29,11 @@ else
   ICON="睊" # No or very poor WiFi
 fi
 
+# Pad the volume percentage to always be 3 characters
+SIGNAL_PADDED=$(printf "%3d" "$SIGNAL")
+
 # Output the icon and SSID (if connected)
-echo "$ICON  $SIGNAL"
+echo "$ICON  $SIGNAL_PADDED"
 
 # Handle click events
 case $BLOCK_BUTTON in

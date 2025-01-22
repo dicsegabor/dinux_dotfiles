@@ -22,16 +22,18 @@ else
   fi
 fi
 
-# Output the icon and volume percentage
-echo "$ICON  $VOLUME"
+# Pad the volume percentage to always be 3 characters
+VOLUME_PADDED=$(printf "%3d" "$VOLUME")
+
+# Output the icon and padded volume percentage
+echo "$ICON  $VOLUME_PADDED"
 
 # Handle click events
 case $BLOCK_BUTTON in
 1) # Left click: Open pavucontrol
-
   i3-msg 'exec alacritty --title mixer_floating -e pulsemixer'
   ;;
-3)
-  notify-send -r "$NOTIFICATION_ID" "Volume" "$ICON  $VOLUME%"
+3) # Right click: Show notification
+  notify-send -r "$NOTIFICATION_ID" "Volume" "$ICON  $VOLUME_PADDED%"
   ;;
 esac
