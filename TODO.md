@@ -52,6 +52,7 @@
 ## Dunst
 
 - [x] brightness and volume change
+- [ ] make dunst text bigger
 
 ## Refactoring
 

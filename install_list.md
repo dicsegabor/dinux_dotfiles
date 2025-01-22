@@ -28,6 +28,30 @@
   Displays battery and power-related information.
 - lm_sensors  
   Monitors CPU temperature, fan speed, and other sensors.
+- ranger
+  Terminal based file manager.
+- timeshift
+  Making system backups.
+- zip
+  Making compressed archives
+- unzip
+  Decompressing archives.
+- 7zip
+  Making compressed archives.
+
+### Dev tools
+
+- nvim
+  Terminal based text editor.
+- git
+  Version control system.
+- lazygit
+  Terminal based ui for git.
+
+#### Programming languages
+
+- python
+- lua
 
 ### Terminal Tools
 
@@ -35,6 +59,8 @@
   GPU-accelerated terminal emulator.
 - starship  
   Cross-shell prompt with customizable features.
+- tmux
+  Terminal multiplexer.
 
 ### Media Management
 
@@ -57,3 +83,8 @@
   Session manager for PipeWire.
 - pulsemixer  
   Terminal-based audio mixer for PulseAudio.
+
+### Network tools
+
+- openvpn
+- openssh
