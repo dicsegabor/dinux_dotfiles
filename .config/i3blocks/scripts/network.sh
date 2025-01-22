@@ -21,7 +21,7 @@ elif WIFI_INFO=$(nmcli -t -f ACTIVE,SSID,SIGNAL dev wifi | grep "^yes:"); then
   NOTIFICATION_TEXT="WiFi connected\nSSID: $SSID\nSignal Strength: $SIGNAL%\nIP Address: $IP_ADDRESS"
 else
   # No active connection
-  ICON="睊"
+  ICON=" "
   NOTIFICATION_TEXT="No active network connection"
 fi
 
