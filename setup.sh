@@ -142,11 +142,11 @@ if [ -d ~/Downloads/dinux_dotfiles ]; then
 fi
 
 # Clone the packages
-git clone --depth 1 https://github.com/mylinuxforwork/hyprland-starter.git
+git clone --depth 1 https://github.com/dicsegabor/dinux_dotfiles.git
 echo ":: Installation files cloned into Downloads folder"
 
 # Change into the folder
-cd hyprland-starter
+cd dinux_dotlfiles
 
 # Start the script
 ./install.sh

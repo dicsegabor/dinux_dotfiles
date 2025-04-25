@@ -3,27 +3,11 @@ installer=""
 
 # Check for distro
 if [ -z "$1" ]; then
-  if [ -f /etc/fedora-release ]; then
-    distro="fedora"
-    installer="fedora"
-  fi
   if [ -f /etc/arch-release ]; then
     distro="arch"
     installer="arch"
   fi
-  if [ -f /etc/nobara-release ]; then
-    distro="nobara"
-    installer="fedora"
-  fi
 else
-  if [[ "$1" == "nobara" ]]; then
-    distro="nobara"
-    installer="fedora"
-  fi
-  if [[ "$1" == "fedora" ]]; then
-    distro="fedora"
-    installer="fedora"
-  fi
   if [[ "$1" == "arch" ]]; then
     distro="arch"
     installer="arch"
@@ -41,10 +25,6 @@ if [ -z $distro ]; then
     echo ":: Installer for Arch"
     distro="arch"
     installer="arch"
-  elif [ "$version" == "rolling-release" ]; then
-    echo ":: Installer for Fedora"
-    distro="fedora"
-    installer="fedora"
   elif [ "$version" == "cancel" ]; then
     echo ":: Setup canceled"
     exit 130
