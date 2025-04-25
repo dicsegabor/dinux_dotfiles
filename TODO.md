@@ -11,6 +11,7 @@
 - [ ] alacritty
 - [ ] x11
 - [ ] tmux
+- [ ] wireguard
 
 ## Create dotfiles
 
@@ -35,18 +36,20 @@
   - [x] win+shift+s -> maim -s
 - [x] modify modifier key to win key
 - [x] change desktop in directions
+- [ ] add lock screen
 
 ## System Functions
 
 - [x] touchpad tap click
 - [x] touchpad double finger tap right click
 - [ ] touchpad swipe for desktop change
+- [ ] tlp power manager
 
 ## I3Blocks
 
 - [x] CPU usage
-- [ ] calendar on time click
-- [ ] bluetooth
+- [x] calendar on time click
+- [x] bluetooth
 - [x] wifi
 
 ## Dunst
@@ -56,4 +59,4 @@
 
 ## Refactoring
 
-- [ ] update taskbar i3blocks scripts so if thenumber is 3 digit dont jump around
+- [x] update taskbar i3blocks scripts so if thenumber is 3 digit dont jump around

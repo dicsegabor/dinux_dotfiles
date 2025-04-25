@@ -31,6 +31,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # Disable touchscreen via a custom script
 exec --no-startup-id ~/Dev/dotfiles/scripts/disable_touchscreen.sh
 
+# Disable touchscreen
+exec --no-startup-id  xinput disable 9
+
 # =======================
 # Workspace Definitions
 # =======================
@@ -112,16 +115,16 @@ bindsym Mod4+Shift+$up move up
 bindsym Mod4+Shift+$right move right
 
 # Split windows
-bindsym Mod4+b split h  # Horizontal split
-bindsym Mod4+v split v  # Vertical split
+#bindsym Mod4+b split h  # Horizontal split
+#bindsym Mod4+v split v  # Vertical split
 
 # Toggle fullscreen
 bindsym Mod4+f fullscreen toggle
 
 # Change container layout
-bindsym Mod4+s layout stacking
-bindsym Mod4+w layout tabbed
-bindsym Mod4+e layout toggle split
+#bindsym Mod4+s layout stacking
+#bindsym Mod4+w layout tabbed
+#bindsym Mod4+e layout toggle split
 
 # Floating window toggle
 bindsym Mod4+Shift+space floating toggle
@@ -173,6 +176,9 @@ bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i
 # Application launcher
 bindsym Mod4+d exec dmenu_run
 
+bindsym Mod4+e exec alacritty -e ranger
+bindsym Mod4+b exec alacritty -e firefox
+
 # Launch htop in terminal
 bindsym Ctrl+Shift+Escape exec alacritty --command "htop"
 
@@ -209,5 +215,5 @@ bar {
     position top
     status_command i3blocks
     font pango:DejaVu Sans Mono 14
-    tray_output primary
+    tray_output none
 }

@@ -29,7 +29,7 @@
 - lm_sensors  
   Monitors CPU temperature, fan speed, and other sensors.
 - ranger
-  Terminal based file manager.
+  Termenal based file manager.
 - timeshift
   Making system backups.
 - zip
@@ -38,6 +38,12 @@
   Decompressing archives.
 - 7zip
   Making compressed archives.
+- calcurse
+  Terminal based calendar.
+- cifs-utils
+  Utilities for mounting
+- reflector
+  Retrieves and updates arch mirrors
 
 ### Dev tools
 
@@ -47,6 +53,8 @@
   Version control system.
 - lazygit
   Terminal based ui for git.
+- tk
+  Tkinter for gui
 
 #### Programming languages
 
@@ -86,5 +94,11 @@
 
 ### Network tools
 
+- firefox
 - openvpn
 - openssh
+- smbclient
+  Samba client
+- tailscale
+- wireguard
+  - wireguard-tools

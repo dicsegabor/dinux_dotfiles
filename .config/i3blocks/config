@@ -17,12 +17,12 @@ color=#A4C2F4  # Light blue for weather
 
 [resources]
 command=./scripts/resources.sh
-interval=1
+interval=10
 color=#B6D7A8  # Light green for system resources
 
 [battery]
 command=./scripts/battery.sh
-interval=1
+interval=10
 color=#C9C9FF  # Lavender for WiFi
 
 [volume]
@@ -32,12 +32,12 @@ color=#F6A5A5  # Soft red for battery status
 
 [wifi]
 command=./scripts/network.sh
-interval=1
+interval=10
 color=#FFD966  # Golden yellow for volume
 
 [bluetooth]
 command=./scripts/bluetooth.sh
-interval=1
+interval=10
 color=#0082FC
 
 [time]
@@ -46,5 +46,5 @@ interval=1
 
 [power]
 command=./scripts/power_menu.sh
-interval=1
+interval=10
 color=#BF0000

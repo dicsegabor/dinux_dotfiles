@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Options for dmenu
-options="Restart\nShutdown\nChange User\nLogout"
+options="Restart\nShutdown\nChange User\nLogout\nSleep"
 
 # Always display the representing character
 echo "   "
@@ -25,6 +25,9 @@ case $BLOCK_BUTTON in
         ;;
       "Change User")
         dm-tool switch-to-greeter
+        ;;
+      "Sleep")
+        systemctl suspend
         ;;
       *)
         # Do nothing on invalid or no selection
