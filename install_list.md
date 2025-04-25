@@ -1,10 +1,5 @@
 # List of Installed Programs and Libraries
 
-## Libraries
-
-- libnotify  
-  Library for sending desktop notifications.
-
 ## Fonts
 
 - ttf-font-awesome  
@@ -16,6 +11,9 @@
 
 - i3  
   Tiling window manager for X11.
+- i3lock
+  - xss-lock
+    Lock screen
 - i3blocks  
   Customizable status bar for i3.
 - dmenu  
@@ -29,7 +27,7 @@
 - lm_sensors  
   Monitors CPU temperature, fan speed, and other sensors.
 - ranger
-  Termenal based file manager.
+  Terminal based file manager.
 - timeshift
   Making system backups.
 - zip
@@ -67,8 +65,6 @@
   GPU-accelerated terminal emulator.
 - starship  
   Cross-shell prompt with customizable features.
-- tmux
-  Terminal multiplexer.
 
 ### Media Management
 
@@ -83,8 +79,6 @@
   PulseAudio compatibility layer for PipeWire.
 - pipewire-alsa  
   ALSA compatibility layer for PipeWire.
-- pipewire-jack  
-  JACK compatibility layer for PipeWire.
 - pipewire-audio  
   Audio processing through PipeWire.
 - wireplumber  

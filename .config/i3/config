@@ -58,6 +58,9 @@ set $down j
 # Keybindings
 # =======================
 
+# Lock the screen with Mod+Shift+L
+bindsym Mod1+Mod4+l exec i3lock -c 000000
+
 ## -----------------------
 ## Window Management
 ## -----------------------
