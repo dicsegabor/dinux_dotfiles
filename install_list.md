@@ -42,7 +42,10 @@
   Utilities for mounting
 - reflector
   Retrieves and updates arch mirrors
-
+- eza
+  Better ls
+- fzf
+  Fuzy file finder
 ### Dev tools
 
 - nvim
