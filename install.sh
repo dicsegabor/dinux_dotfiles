@@ -2,16 +2,19 @@
 
 # -----------------------------------------------------
 # Version
+# Gets the current version of te dotfiles
 # -----------------------------------------------------
 version=$(cat install/version)
 
 # -----------------------------------------------------
 # Library
+# Checks if runnning virtualized
 # -----------------------------------------------------
 source install/includes/library.sh
 
 # -----------------------------------------------------
 # Header
+# Displays header info about the dotfiles
 # -----------------------------------------------------
 source install/includes/header.sh
 
@@ -69,6 +72,11 @@ source install/includes/monitor.sh
 # KVM
 # -----------------------------------------------------
 source install/includes/kvm.sh
+
+# -----------------------------------------------------
+# Configure applications
+# -----------------------------------------------------
+source install/includes/apps.sh
 
 # -----------------------------------------------------
 # Copy the configuration

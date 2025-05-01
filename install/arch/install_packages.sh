@@ -28,8 +28,9 @@ app_packages=(
   "ranger"    # File manager
   "firefox"   # Browser
   "vim"       # Text editor
-  "fastfetch" # System info
+  "neofetch"  # System info
   "vlc"       # Media player
+  "obsidian"
 )
 
 # 🧰 Libraries / runtimes / GUI support

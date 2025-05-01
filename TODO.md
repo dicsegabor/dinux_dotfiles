@@ -2,32 +2,33 @@
 
 ## Config files
 
-- [ ] starship
-- [ ] bashrc
+- [x] starship
+- [x] bashrc
 - [x] i3
 - [x] i3blocks
-- [ ] xinitrc
+- [x] xinitrc
+  - [ ] separate somehow from dotfiles
 - [ ] nvim
-- [ ] alacritty
+- [x] alacritty
 - [ ] x11
-- [ ] tmux
+- [x] tmux
 - [ ] wireguard
 
-## Create dotfiles
+## Installer
 
-- [ ] install script
-- [ ] bootstrap script
-- [ ] helper script
-- [ ] collecting config files
-- [ ] update script
-- [ ] backup.sh
-- [ ] cleanup.sh
+- [ ] Configure backup.sh list
+- [ ] Keyboard layout changer script with dmenu. [Command](https://superuser.com/questions/1147320/how-to-change-keyboard-layout-in-i3)
+- [ ] Monitor script monitor.sh
+- [ ] KVM script kvm.sh
+- [ ] Update script
 
 ## Helper scripts
 
 - [ ] Request notification id
 - [ ] Open application fullscreen
 - [ ] Open application floating
+- [ ] open filemanager
+- [ ] open browser
 
 ## Functions
 
@@ -36,7 +37,9 @@
   - [x] win+shift+s -> maim -s
 - [x] modify modifier key to win key
 - [x] change desktop in directions
-- [ ] add lock screen
+- [x] add lock screen (i3lock)
+  - [ ] add some text
+- [ ] when screen down then lock
 
 ## System Functions
 
@@ -55,6 +58,7 @@
 ## Dunst
 
 - [x] brightness and volume change
+- [ ] configure dunstrc
 - [ ] make dunst text bigger
 
 ## Refactoring

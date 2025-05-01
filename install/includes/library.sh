@@ -1,3 +1,7 @@
+# Colors to use later
+GREEN='\033[0;32m'
+NONE='\033[0m'
+
 # isKVM
 _isKVM() {
   iskvm=$(sudo dmesg | grep "Hypervisor detected")
