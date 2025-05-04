@@ -8,7 +8,7 @@
 - [x] i3blocks
 - [x] xinitrc
   - [ ] separate somehow from dotfiles
-- [ ] nvim
+- [x] nvim
 - [x] alacritty
 - [ ] x11
 - [x] tmux
@@ -16,7 +16,7 @@
 
 ## Installer
 
-- [ ] Configure backup.sh list
+- [x] Configure backup.sh list
 - [ ] Keyboard layout changer script with dmenu. [Command](https://superuser.com/questions/1147320/how-to-change-keyboard-layout-in-i3)
 - [ ] Monitor script monitor.sh
 - [ ] KVM script kvm.sh
@@ -24,7 +24,7 @@
 
 ## Helper scripts
 
-- [ ] Request notification id
+- [x] Request notification id
 - [ ] Open application fullscreen
 - [ ] Open application floating
 - [ ] open filemanager
@@ -46,7 +46,6 @@
 - [x] touchpad tap click
 - [x] touchpad double finger tap right click
 - [ ] touchpad swipe for desktop change
-- [ ] tlp power manager
 
 ## I3Blocks
 
@@ -58,6 +57,7 @@
 ## Dunst
 
 - [x] brightness and volume change
+  - [x] use dunst inbuilt progress bar
 - [ ] configure dunstrc
 - [ ] make dunst text bigger
 

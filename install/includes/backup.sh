@@ -1,11 +1,17 @@
 backup_files=(
   ".config/alacritty"
+  ".config/dinux"
   ".config/dunst"
   ".config/i3"
-  ".config/dinux"
   ".config/i3blocks"
   ".config/i3lock"
+  ".config/ranger"
+  ".config/xsettingsd"
+  ".config/mimeapps.list"
+  ".config/startship.toml"
+  "touchpadxlibinputrc"
   ".bashrc"
+  ".tmux.conf"
 )
 
 echo -e "${GREEN}"

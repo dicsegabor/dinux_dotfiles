@@ -17,6 +17,7 @@ wm_packages=(
   "i3"
   "i3blocks"
   "i3lock"
+  "xss-lock"
   "dmenu"
   "dunst"
 )
@@ -28,9 +29,11 @@ app_packages=(
   "ranger"    # File manager
   "firefox"   # Browser
   "vim"       # Text editor
-  "neofetch"  # System info
-  "vlc"       # Media player
+  "neovim"
+  "neofetch" # System info
+  "vlc"      # Media player
   "obsidian"
+  "mupdf" # pdf viewer
 )
 
 # 🧰 Libraries / runtimes / GUI support
@@ -66,6 +69,8 @@ network_tools=(
 # ⚙️ System control & input tools
 util_packages=(
   "xdotool"
+  "imagemagick" # image manipulation
+  "maim"
   "brightnessctl"
 )
 
