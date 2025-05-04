@@ -1,7 +1,12 @@
 #!/bin/bash
 
-# Define a notification ID
-NOTIFICATION_ID=9997
+# Try to source notification ID file, if it exists and is readable
+if [ -f "$XDG_RUNTIME_DIR/dunst_ids.env" ]; then
+  source "$XDG_RUNTIME_DIR/dunst_ids.env"
+fi
+
+# Use env variable if set, otherwise generate a random fallback
+NOTIFICATION_ID=${DUNST_ID_NETWORK:-$((RANDOM % 100000 + 10000))}
 NOTIFICATION_TEXT=""
 
 # Check if Ethernet is connected

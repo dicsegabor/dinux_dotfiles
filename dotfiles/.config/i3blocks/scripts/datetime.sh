@@ -1,7 +1,12 @@
 #!/bin/bash
 
-# Define a notification ID for persistent notifications
-NOTIFICATION_ID=9993
+# Try to source notification ID file, if it exists and is readable
+if [ -f "$XDG_RUNTIME_DIR/dunst_ids.env" ]; then
+  source "$XDG_RUNTIME_DIR/dunst_ids.env"
+fi
+
+# Use env variable if set, otherwise generate a random fallback
+NOTIFICATION_ID=${DUNST_ID_DATETIME:-$((RANDOM % 100000 + 10000))}
 
 # Output only the time to i3blocks bar
 echo " $(date "+%H:%M:%S") "

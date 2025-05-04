@@ -1,7 +1,12 @@
 #!/bin/bash
 
-# Define a notification ID
-NOTIFICATION_ID=9998
+# Try to source notification ID file, if it exists and is readable
+if [ -f "$XDG_RUNTIME_DIR/dunst_ids.env" ]; then
+  source "$XDG_RUNTIME_DIR/dunst_ids.env"
+fi
+
+# Use env variable if set, otherwise generate a random fallback
+NOTIFICATION_ID=${DUNST_ID_BATTERY:-$((RANDOM % 100000 + 10000))}
 
 # Get battery information from upower
 UP_BATTERY_INFO=$(upower -i "$(upower -e | grep BAT)")
